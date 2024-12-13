@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="d-flex justify-content-center align-items-center flex-column">
+    <h1>Editando sua tarefa {{task.title}}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-success" value="Editar Tarefa">
+    </form>
+</div>
+
+{% endblock %}

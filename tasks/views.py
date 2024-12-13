@@ -24,4 +24,19 @@ def create_task(request):
     else:
         form = TaskModelForm()
 
-    return render(request,"tasks/create-task.html", {"form": form} )
+    return render(request,"tasks/create-task.html", {"form": form})
+
+def update_task(request, id):
+    task = get_object_or_404(Task, id=id)
+    form = TaskModelForm(instance=task)
+
+    if request.method == "POST":
+        form = TaskModelForm(request.POST, instance=task)
+        if form.is_valid():
+            task = form.save()
+            task.save()
+            return redirect("/tasks")
+        else:
+            return render(request,"tasks/update-task.html", {"form": form, "task": task})
+    else:
+        return render(request,"tasks/update-task.html", {"form": form, "task": task})
