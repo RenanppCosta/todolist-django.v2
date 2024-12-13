@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Entrar{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                <div class="card-header bg-secondary text-white text-center py-4">
+                    <h3 class="mb-0">Entrar no To Do List</h3>
+                </div>
+                <div class="card-body p-4">
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ next }}">
+                        
+                        {{ form|crispy }}
+
+                        <div class="form-group d-flex align-items-center justify-content-center mt-4 mb-0">
+                            <button type="submit" class="btn btn-secondary">Entrar</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center py-3">
+                    <div class="small"><a href="#" class="link-dark link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Precisa de uma conta? Cadastre-se!</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
