@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="d-flex justify-content-center">
+    <div class="card" style="width: 20rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{task.title}}</h5>
+          <p class="card-text">{{task.description}}</p>
+          <span href="#" class="card-link">Tarefa Criada no dia {{task.created_at | date:"d/m/Y, H:i"}}</span>
+        </div>
+    </div>
+    
+</div>
+
+{% endblock %}
