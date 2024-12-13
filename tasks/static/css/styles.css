@@ -40,3 +40,7 @@ ul.messages li {
     margin-left: auto;
     margin-right: auto;
 }
+
+form.btn-success{
+    width: 100px !important;
+}
