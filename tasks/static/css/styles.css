@@ -29,3 +29,14 @@ ul.messages {
 ul.messages li {
     list-style: none;
 }
+
+
+.pagination{
+    margin-bottom: 20px;
+}
+
+.step-links{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
