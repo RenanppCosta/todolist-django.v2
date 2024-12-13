@@ -21,3 +21,11 @@ footer p{
 li i{
     font-size: 20px;
 }
+
+ul.messages {
+    padding: 0;
+}
+
+ul.messages li {
+    list-style: none;
+}

@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Task
 from .forms import TaskModelForm
+from django.contrib import messages
 
 
 def task_list(request):
@@ -40,3 +41,10 @@ def update_task(request, id):
             return render(request,"tasks/update-task.html", {"form": form, "task": task})
     else:
         return render(request,"tasks/update-task.html", {"form": form, "task": task})
+    
+def delete_task(request, id):
+    task = Task.objects.get(id=id)
+    task.delete()
+
+    messages.info(request, "Tarefa deletada com sucesso!")
+    return redirect("/tasks")
