@@ -9,9 +9,17 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def task_list(request):
     search = request.GET.get("search")
+    filter = request.GET.get("filter")
 
     if search:
         tasks = Task.objects.filter(title__icontains=search, user=request.user)
+    elif filter:
+        if filter == "doing":
+            tasks = Task.objects.filter(is_completed=False, user=request.user)
+        elif filter == "done":
+            tasks = Task.objects.filter(is_completed=True, user=request.user)
+        else:
+            tasks = Task.objects.filter(user=request.user)
     else:
         tasks_list = Task.objects.all().order_by("-created_at").filter(user=request.user)
 

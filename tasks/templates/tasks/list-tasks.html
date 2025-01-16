@@ -11,6 +11,16 @@
                 <span class="input-group-text" id="inputGroup-sizing-default" style="cursor: pointer;"><i class="fa-solid fa-magnifying-glass"></i></span>
             </form>
         </div>
+
+        
+        <div class="input-group w-50">
+            <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+            <option selected>Filtar por:</option>
+            <option value="doing">Tarefas não completas</option>
+            <option value="done">Tarefas já completadas</option>
+            </select>
+            <button class="btn btn-outline-secondary" type="button">Filtrar</button>
+        </div>
         
         {% if messages %}
         <ul class="messages">
