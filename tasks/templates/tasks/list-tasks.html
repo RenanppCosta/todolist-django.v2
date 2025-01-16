@@ -23,10 +23,11 @@
         <ul class="list-group list-group-flush">
             {% for task in tasks %} 
             <li class="list-group-item d-flex justify-content-between fs-4">
-                <a href="{% url 'task_view' task.id %}" class="link-dark link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover">{{task.title}}</a> 
+                <a href="{% url 'task_view' task.id %}" class="{% if task.is_completed %} opacity-50{% endif %} link-dark link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover">{{task.title}}</a> 
                 <div class="d-flex gap-2 justify-content-center align-items-center">
+                    <a href="{% url 'complete_task' task.id %}"><i class="fa-solid fa-check" style="{% if task.is_completed %} color:rgb(3, 111, 252);{% else %} color:rgb(178, 185, 194); {% endif %}"></i></a> 
                     <a href="{% url 'update_task' task.id %}"><i class="fa-solid fa-pen-to-square" style="color: #7a7429;"></i></a> 
-                    <a href="{% url 'delete_task' task.id %}"><i class="fa-solid fa-trash" style="color: #fc0303;"></i></a> 
+                    <a href="{% url 'delete_task' task.id %}"><i class="fa-solid fa-trash" style="color: #fc0303;"></i></a>
                 </div>
             </li>
             {% endfor %}

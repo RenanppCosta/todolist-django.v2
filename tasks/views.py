@@ -66,3 +66,14 @@ def delete_task(request, id):
 
     messages.info(request, "Tarefa deletada com sucesso!")
     return redirect("/tasks")
+
+
+@login_required
+
+def complete_task(request, id):
+    task = get_object_or_404(Task, id=id)
+
+    task.is_completed = not task.is_completed
+    task.save()
+
+    return redirect("/tasks")
